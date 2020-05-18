@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+   <head>
+      <title>Bolão Web</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+      <style>
+         .font1 {
+             font-family: 'Fredericka the Great', cursive;
+         }
+      </style>
+      <style>
+         .ghost{height:50px; width: 100%};
+
+
+      </style>
+   </head>
+   <body>
+      <div class="row">
+         <nav class="navbar navbar-expand-lg navbar-light fixed-top pt-4 bg-dark text-light col-12 ml-auto">
+            <h2 class="display-5 mr-2 font1 p-2">BOLÃO WEB</h2>
+            <button class="navbar-toggler bg-light mb-3 ml-2" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+               <span class="navbar-toggler-icon bg-light"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+               <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                     <a class="nav-link   btn btn-warning btn-sm mr-3 mb-2" href="index.php?action=classificacao" role="button">Classificação</a>
+                  </li>
+
+                  <li class="nav-item active">
+                     <a class="nav-link  btn btn-warning btn-sm mr-3 mb-2" href="index.php?action=apostadores" role="button">Apostadores</a>
+                  </li>
+
+
+                  <li class="nav-item active">
+                     <a class="nav-link  btn btn-warning btn-sm mr-3 mb-2" href="index.php?action=verConc"  role="button" data-toggle="modal" data-target="#modalConc">Concursos</a>
+                  </li>
+
+
+                  <li class="nav-item active">
+                     <a class="nav-link  btn btn-warning btn-sm mr-3 mb-2" href="formLogin.html" role="button">Administrador</a>
+                  </li>
+
+               </ul>
+
+               <form class="form-inline my-2 my-lg-0"  action='index.php'  method="get" >
+                  <input name="nome" class="form-control mr-sm-2" style="width:60% " type="text" placeholder="Pesquisar" aria-label="Pesquisar" required >
+                  <button class="btn btn-outline-warning my-2 my-sm-0 ml-1" type="submit">Pesquisar</button>
+               </form>
+            </div>
+         </nav>
+
+         <div class="ghost"></div>
+         <div class="jumbotron jumbotron-fluid bg-warning pl-4" style="width:100%">
+            <div class="container">
+               <h3 class="font1 pt-4  pb-0">{jumbotron}</h3>
+
+               <p class="lead"></p>
+            </div>
+         </div>
+
+
+         <div class=" ml-4 pl-3 font1" Style="font-size:12px">&copy;Edvaldo Leite</div>
+         <div class="table-responsive">
+            <table class="table table-hover table-dark ">
+               <thead class="bg-secondary text- p-5">
+                  <tr align="center">
+                     <th scope="col" style="display:{none}" class="pl-4">POSIÇÃO</th>
+                     <th scope="col">NOME</th>
+                     <th scope="col" class="pr-4">PONTOS</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {cards}
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+
+      <!--************ Modal**************-->
+
+      <div class="modal fade bd-example-modal-lg"  id="modalConc" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h3 class="modal-title" id="TituloModalCentralizado">Concursos</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body  table-responsive">
+                  <table class="table table-hover table-dark ">
+                     <thead class="bg-secondary text-light">
+                        <tr align="center">
+                           <th scope="col" style="display:none;">Id</th>
+                           <th scope="col">Data</th>
+                           <th scope="col">Concurso</th>
+                           <th scope="col">N°1</th>
+                           <th scope="col">N°2</th>
+                           <th scope="col">N°3</th>
+                           <th scope="col">N°4</th>
+                           <th scope="col">N°5</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {concursos}
+                     </tbody>
+                  </table>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+      <div class="ghost"></div>
+   </body>
+</html>
+
